@@ -1,0 +1,55 @@
+# Route name can be used in several place (links, redirects, local actions etc.)
+entity.content_entity_manage_inventory.canonical:
+  path: '/content_entity_manage_inventory/{content_entity_manage_inventory}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the contact entity
+    _entity_view: 'content_entity_manage_inventory'
+    _title: 'Event Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'content_entity_manage_inventory.view'
+
+entity.content_entity_manage_inventory.collection:
+  path: '/content_entity_manage_inventory/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the contact entity.
+    _entity_list: 'content_entity_manage_inventory'
+    _title: 'Event List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view event entity'
+
+entity.manage_inventory.add_form:
+  path: '/content_entity_manage_inventory/add'
+  defaults:
+  # Calls the form.add controller, defined in the contact entity.
+    _entity_form: content_entity_manage_inventory.add
+    _title: 'Add Event'
+  requirements:
+    _entity_create_access: 'content_entity_manage_inventory'
+
+entity.content_entity_manage_inventory.edit_form:
+  path: '/content_entity_manage_inventory/{content_entity_manage_inventory}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the inventory entity.
+    _entity_form: content_entity_manage_inventory.edit
+    _title: 'Edit Event'
+  requirements:
+    _entity_access: 'content_entity_manage_inventory.edit'
+
+entity.content_entity_manage_inventory.delete_form:
+  path: '/inventory/{content_entity_manage_inventory}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the contact entity.
+    _entity_form: content_entity_manage_inventory.delete
+    _title: 'Delete Event'
+  requirements:
+    _entity_access: 'content_entity_manage_inventory.delete'
+
+manage_inventory.inventory_settings:
+  path: 'admin/structure/content_entity_manage_inventory_settings'
+  defaults:
+    _form: '\Drupal\manage_inventory\Form\InventorySettingsForm'
+    _title: 'Event Settings'
+  requirements:
+    _permission: 'administer contact entity'

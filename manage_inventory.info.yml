@@ -1,0 +1,6 @@
+name: Manage Inventory
+type: module
+description: 'Provides Event entity.'
+package: Custom
+core: 8.x
+package: Custom

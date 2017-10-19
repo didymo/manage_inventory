@@ -1,0 +1,12 @@
+# Define the menu links for this module
+
+entity.content_entity_manage_inventory.collection:
+  title: 'Event Entity: Event Listing'
+  route_name: entity.content_entity_manage_inventory.collection
+  description: 'List Event'
+  weight: 10
+content_entity_manage_inventory.admin.structure.settings:
+  title: 'Event Settings'
+  description: 'Configure Event entity'
+  route_name:  manage_inventory.inventory_settings
+  parent: system.admin_structure
